@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content button {
+        border: none;
+        padding: 12px 16px;
+        text-align: left;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .dropdown-content button:hover {
+        background-color: #ddd;
+      }
+
+      .dropdown-content .close-btn {
+        background-color: #ff4c4c;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+      }
+
+      .dropdown-content .close-btn:hover {
+        background-color: #ff1c1c;
+      }
+
+      .show {
+        display: block;
+      }
+
+      .FUllMainDiv {
+        padding: 20px;
+      }
+
+      .DivNumberone,
+      .DivNumbertwo,
+      .DivNumberthree {
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+        display: inline-block;
+        border: 5px solid transparent;
+      }
+
+      .DivNumberone {
+        background-color: lightblue;
+      }
+
+      .DivNumbertwo {
+        background-color: lightgreen;
+      }
+
+      .DivNumberthree {
+        background-color: lightcoral;
+      }
+
+      .selected1 {
+        border-color: yellow;
+      }
+
+      .selected2 {
+        border-color: cyan;
+      }
+
+      .selected3 {
+        border-color: magenta;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="FUllMainDiv">
+      <div class="MoreDiv">
+        <div id="DivNumberone" class="DivNumberone">
+          <p>gamarjoba</p>
+        </div>
+        <div id="DivNumberthree" class="DivNumberthree">
+          <p>gamarjoba</p>
+        </div>
+        <div id="DivNumbertwo" class="DivNumbertwo">
+          <p>gamarjoba</p>
+        </div>
+      </div>
+      <div class="divi2">
+        <div class="dropdown">
+          <button id="dropdownBtn">Select Number</button>
+          <div id="dropdownContent" class="dropdown-content">
+            <button class="buttonfirst" data-value="1">1</button>
+            <button class="buttonSecond" data-value="2">2</button>
+            <button class="Buttonthird" data-value="3">3</button>
+            <button class="close-btn" id="closeDropdownBtn">Close</button>
+            <p id="selectedNumber">Selected number: None</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let dropdownBtn = document.getElementById("dropdownBtn");
+      let dropdownContent = document.getElementById("dropdownContent");
+      let selectedNumberParagraph = document.getElementById("selectedNumber");
+      let closeDropdownBtn = document.getElementById("closeDropdownBtn");
+
+      dropdownBtn.onclick = function () {
+        dropdownContent.classList.toggle("show");
+      };
+
+      closeDropdownBtn.onclick = function () {
+        dropdownContent.classList.remove("show");
+      };
+
+      dropdownContent.addEventListener("click", function (event) {
+        if (
+          event.target.tagName === "BUTTON" &&
+          event.target !== closeDropdownBtn
+        ) {
+          let selectedValue = event.target.getAttribute("data-value");
+          selectedNumberParagraph.innerHTML =
+            "Selected number: " + selectedValue;
+          ChangeColor(selectedValue);
+          dropdownContent.classList.remove("show");
+        }
+      });
+
+      function ChangeColor(stylenum) {
+        document
+          .getElementById("DivNumberone")
+          .classList.remove("selected1", "selected2", "selected3");
+        document
+          .getElementById("DivNumbertwo")
+          .classList.remove("selected1", "selected2", "selected3");
+        document
+          .getElementById("DivNumberthree")
+          .classList.remove("selected1", "selected2", "selected3");
+
+        if (stylenum === "1") {
+          document.getElementById("DivNumberone").classList.add("selected1");
+          document.getElementById("DivNumbertwo").classList.add("selected1");
+          document.getElementById("DivNumberthree").classList.add("selected1");
+        } else if (stylenum === "2") {
+          document.getElementById("DivNumberone").classList.add("selected2");
+          document.getElementById("DivNumbertwo").classList.add("selected2");
+          document.getElementById("DivNumberthree").classList.add("selected2");
+        } else if (stylenum === "3") {
+          document.getElementById("DivNumberone").classList.add("selected3");
+          document.getElementById("DivNumbertwo").classList.add("selected3");
+          document.getElementById("DivNumberthree").classList.add("selected3");
+        }
+      }
+    </script>
+  </body>
+</html>

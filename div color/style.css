@@ -1,0 +1,67 @@
+.FUllMainDiv {
+  display: flex;
+  background-color: aqua;
+  width: 100%;
+  height: 90vh;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.DivNumberone {
+  background-color: blanchedalmond;
+  width: 20%;
+  height: 20%;
+}
+.DivNumbertwo {
+  background-color: blueviolet;
+  width: 20%;
+  height: 20%;
+}
+.DivNumberthree {
+  background-color: chartreuse;
+  width: 20%;
+  height: 20%;
+}
+.buttonclass {
+  display: flex;
+  background-color: gold;
+  width: 50%;
+  height: 20%;
+  flex-direction: column;
+}
+.threeButton {
+  background-color: chocolate;
+  width: 5px;
+}
+.twoButton {
+  background-color: blue;
+  width: 20px;
+}
+.oneButton {
+  background-color: cornflowerblue;
+  width: 5px;
+  height: 10px;
+}
+.MoreDiv {
+  height: 100%;
+  width: 45%;
+  background-color: violet;
+}
+.onemorediv {
+  height: 100%;
+  width: 45%;
+  background-color: cadetblue;
+}
+.divi2{
+    width: 45%;
+    height: 100%;
+    background-color: blueviolet;
+}
+.buttonfirst{
+    background-color: aqua;
+}
+.buttonSecond{
+    background-color: green;
+}
+.Buttonthird{
+    background-color: orange;
+}
